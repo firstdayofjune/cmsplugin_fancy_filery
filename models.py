@@ -29,7 +29,7 @@ class Gallery(CMSPlugin):
 class Image(CMSPlugin):
     gallery = models.ForeignKey(Gallery, default=0, related_name='images')
     gallery_position = models.IntegerField(default=0)
-    filer = FilerImageField(verbose_name=_('filer_image'), help_text=_('Please upload a jpeg or png image'), null=True)
+    filer = FilerImageField(verbose_name=_(_('Filer Image')), help_text=_('Please upload a jpeg or png image'), null=True)
     title = models.CharField(_('title'), max_length=70, default=_('Image'))
     description = models.TextField(null=True)
     display = models.BooleanField(default=True)

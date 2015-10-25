@@ -1,6 +1,7 @@
 <h1>{{ gallery.title }} </h1>
+{% load thumbnail %}
 {% for image in images %}
     <p>{{ image.title }}</p>
-    <img src="{{ image.filer }}">
+    <img src="{% thumbnail image.filer 250x250 crop %}">
     <p>{{ image.description }}</p>
 {% endfor %}
