@@ -6,7 +6,7 @@ from filer.fields.image import FilerImageField
 
 
 class Gallery(CMSPlugin):
-    title = models.TextField(default='Gallery')
+    title = models.CharField(_('title'), max_length=70, default=_('Gallery'))
 
     def get_all_visible(self):
         return self.images.filter(display=True)
@@ -19,16 +19,16 @@ class Gallery(CMSPlugin):
             # instance.pk = None; instance.pk.save() is the standard Django way
             # of copying a saved model instance
             image.pk = None
-            image.plugin = self
+            image.gallery = self
             image.save()
 
 
 class Image(CMSPlugin):
-    filer = FilerImageField(verbose_name=_('image'), help_text=_('Please upload a jpeg or png image'), null=True)
-    title = models.TextField(default='Image')
-    description = models.TextField(null=True)
     gallery = models.ForeignKey(Gallery, default=0, related_name='images')
     gallery_position = models.IntegerField(default=0)
+    filer = FilerImageField(verbose_name=_('filer_image'), help_text=_('Please upload a jpeg or png image'), null=True)
+    title = models.CharField(_('title'), max_length=70, default=_('Image'))
+    description = models.TextField(null=True)
     display = models.BooleanField(default=True)
 
     def __str__(self):
