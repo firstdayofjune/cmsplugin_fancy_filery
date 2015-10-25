@@ -57,7 +57,7 @@ class ImageAndGalleryModelTest(TestCase):
         image2.gallery = saved_gallery
         image2.save()
 
-        gallery_images = saved_gallery.image_set.all()
+        gallery_images = saved_gallery.images.all()
         print(saved_gallery.get_all_visible())
         self.assertEqual(len(gallery_images), 2)
         self.assertEqual(image1, gallery_images[0])
