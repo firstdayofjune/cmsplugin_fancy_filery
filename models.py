@@ -16,12 +16,15 @@ class Gallery(CMSPlugin):
 
     def copy_relations(self, old_instance):
         for image in old_instance.images.all():
-            # instance.pk = None; instance.pk.save() is the standard Django way
-            # of copying a saved model instance
-            image.pk = None
-            image.gallery = self
-            image.save()
-
+            # a new image has to be created to prevent the images from being deleted when publishing the page
+            live_image = Image()
+            live_image.gallery = self
+            live_image.gallery_position = image.gallery_position
+            live_image.filer = image.filer
+            live_image.title = image.title
+            live_image.description = image.description
+            live_image.display = image.display
+            live_image.save()
 
 class Image(CMSPlugin):
     gallery = models.ForeignKey(Gallery, default=0, related_name='images')
