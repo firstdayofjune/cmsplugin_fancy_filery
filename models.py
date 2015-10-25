@@ -14,6 +14,14 @@ class Gallery(CMSPlugin):
     def __str__(self):
         return self.title
 
+    def copy_relations(self, old_instance):
+        for image in old_instance.images.all():
+            # instance.pk = None; instance.pk.save() is the standard Django way
+            # of copying a saved model instance
+            image.pk = None
+            image.plugin = self
+            image.save()
+
 
 class Image(CMSPlugin):
     filer = FilerImageField(verbose_name=_('image'), help_text=_('Please upload a jpeg or png image'), null=True)
