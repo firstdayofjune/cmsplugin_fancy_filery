@@ -1,7 +1,28 @@
 <h1>{{ gallery.title }} </h1>
-{% load thumbnail %}
-{% for image in images %}
-    <p>{{ image.title }}</p>
-    <img src="{% thumbnail image.filer 250x250 crop %}">
-    <p>{{ image.description }}</p>
-{% endfor %}
+{% load sekizai_tags staticfiles thumbnail  %}
+{% addtoblock "css" %}
+    <link rel="stylesheet" href="{% static "cmsplugin_fancy_filery/css/fancy_desktop.css" %}">
+    <style type="text/css">
+        .fancy-filery .fancy-image-main {
+            width: 420px;
+        }
+    </style>
+{% endaddtoblock %}
+
+{% autoescape on %}
+<div class="fancy-filery">
+    <div class="fancy-image-main">
+        <p class="fancy-title">{{ images.0.title }}</p>
+        <img src="{% thumbnail images.0.filer 400x400 crop %}">
+        <p class="fancy-desc">{{ images.0.description }}</p>
+    </div>
+<div class="fancy-aside">
+    {% for image in images|slice:"1:" %}
+        <div class="fancy-image-preview">
+            <p class="fancy-title">{{ image.title }}</p>
+            <img src="{% thumbnail image.filer 150x150 crop %}">
+        </div>
+    {% endfor %}
+</div>
+</div>
+{% endautoescape %}
