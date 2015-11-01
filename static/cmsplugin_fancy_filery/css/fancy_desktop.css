@@ -1,37 +1,21 @@
 .fancy-filery {
-    width: 95%;
+    margin: auto;
 }
 
 .fancy-filery .fancy-image-main {
-    display: inline-block;
     float: left;
     margin: 5px;
     padding: 5px;
 }
 
-.fancy-filery .
-
 .fancy-filery .fancy-aside {
-    display: inline-block;
-    float: left;
     text-align: center;
-    width: 60%;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .fancy-filery .fancy-image-preview {
-    display: inline;
-    float: left;
-    width: auto;
-    height: auto;
     border: 1px solid #000000;
     margin: 5px;
     padding: 5px;
-}
-
-.fancy-filery .fancy-image-preview img {
-    display: inline;
-}
-
-.fancy-filery .fancy-image-preview p:last-child {
-    overflow: hidden;
 }
