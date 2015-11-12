@@ -1,21 +1,71 @@
 .fancy-filery {
-    margin: auto;
+    position: relative;
+	height: 170px;
+	max-width: 1200px;
+    padding-top: 560px;
+    box-shadow: 0 5px 45px 7px rgba(26,35,35, 0.7);rgb(26,35,35)
 }
 
-.fancy-filery .fancy-image-main {
-    float: left;
-    margin: 5px;
-    padding: 5px;
+.fancy-filery h1 {
+	position: absolute;
+	top: 0;
+	left: 40px;
 }
 
-.fancy-filery .fancy-aside {
-    text-align: center;
-    display: flex;
-    flex-wrap: wrap;
+.fancy-preview {
+    display: none;
+	position: absolute;
+	top: 65px;
+	left: 50px;
+	width: 470px;
+	height: 470px;
 }
 
-.fancy-filery .fancy-image-preview {
-    border: 1px solid #000000;
-    margin: 5px;
-    padding: 5px;
+.fancy-preview img {
+	position: relative;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
 }
+
+.fancy-overlay {
+	display: none;
+	position: fixed;
+	z-index: 10000;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.7);
+}
+
+.fancy-overlay img {
+	position: relative;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	max-width: 85%;
+	max-height: 85%;
+}
+
+.fancy-thumbnail:first-of-type {
+	margin-left: 40px;
+}
+
+.fancy-thumbnail {
+	display: inline-block;
+	float: left;
+	margin-right: 34px;
+    box-shadow: 0 0 10px 2px rgba(26,35,35, 0.2);
+}
+
+input[name*="fancy-preview"], input[name*="fancy-overlay"] { display: none; }
+
+input[type='radio']:checked + label + input + .fancy-preview {
+	display: inline-block;
+}
+
+input[type='radio']:checked + label + input[type='checkbox']:checked + label + .fancy-overlay {
+	display: block;
+}
+
