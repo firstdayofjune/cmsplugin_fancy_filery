@@ -1,7 +1,8 @@
 <h1>{{ gallery.title }} </h1>
 {% load sekizai_tags staticfiles thumbnail  %}
 {% addtoblock "css" %}
-    <link rel="stylesheet" href="{% static "cmsplugin_fancy_filery/css/fancy_desktop.css" %}">
+    <link rel="stylesheet" href="{% static "cmsplugin_fancy_filery/css/fancy_desktop.css" %}" media="screen and (min-device-width: 768px)">
+
     <style type="text/css">
         .fancy-filery .fancy-image-main {
             width: 420px;
