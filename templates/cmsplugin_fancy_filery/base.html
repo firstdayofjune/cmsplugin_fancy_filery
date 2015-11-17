@@ -1,7 +1,12 @@
 {% load sekizai_tags staticfiles thumbnail %}
 {% addtoblock "css" %}
     <link rel="stylesheet" href="{% static "cmsplugin_fancy_filery/css/fancy_desktop.css" %}"
-          media="screen and (min-device-width: 768px)">
+          media="only screen and (min-width: 1024px)">
+    <link rel="stylesheet" href="{% static "cmsplugin_fancy_filery/css/fancy_mobile.css" %}"
+          media="only screen and (max-device-width: 1023px)">
+{% endaddtoblock %}
+{% addtoblock "js" %}
+    <script type="text/javascript" src="{% static "cmsplugin_fancy_filery/js/fancy_mobile.js" %}"></script>
 {% endaddtoblock %}
 
 {% autoescape on %}
@@ -17,7 +22,7 @@
         </label>
         <input type="checkbox" name="fancy-overlay" id="img{{ forloop.counter }}_check">
         <label class="fancy-preview" for="img{{ forloop.counter }}_check">
-            <img src="{% thumbnail image.filer 450x450 crop %}" width="450" height="450">
+            <img src="{% thumbnail image.filer 700x700 crop %}" width="450" height="450">
             <h2 class="fancy-title">{{ image.title }}</h2>
             <p class="fancy-description">{{ image.description }}</p>
             <div class="fancy-divider"></div>
