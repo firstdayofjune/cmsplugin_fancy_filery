@@ -41,6 +41,8 @@
 	top: 50px;
 	left: 530px;
 	width: 100%;
+	height: 400px;
+	overflow: auto;
 }
 
 .fancy-preview .fancy-divider {
@@ -108,12 +110,38 @@
 .fancy-thumbnail {
 	display: inline-block;
 	float: left;
+    width: 110px;
+	position: relative;
 	margin-right: 34px;
     box-shadow: 0 0 10px 2px rgba(26,35,35, 0.2);
 }
 
 .fancy-thumbnail img {
 	cursor: pointer;
+    display: block;
+	margin: 0px auto;
+}
+
+.fancy-thumbnail .fancy-title {
+    width: 90px;
+	height: 1.3em;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+.fancy-thumbnail .fancy-title:hover:after {
+	content: attr(data-title);
+	position: absolute;
+	display: block;
+	top: 100px;
+	left: 0px;
+	height: 1.1em;
+	white-space: nowrap;
+	z-index: 100;
+	padding-right: 10px;
+	padding-left: 10px;
+	color: rgb(0, 0, 0);
+	background-color: rgba(255, 255, 255, 0.90);
 }
 
 input[name*="fancy-preview"], input[name*="fancy-overlay"] { display: none; }
