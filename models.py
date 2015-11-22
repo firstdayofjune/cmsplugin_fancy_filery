@@ -7,7 +7,7 @@ from filer.fields.image import FilerImageField
 
 class Gallery(CMSPlugin):
     title = models.CharField(_('title'), max_length=70, default=_('Gallery'))
-    style = models.TextField(_('style'), max_length=70, default=('Tiles'))
+    style = models.CharField(_('style'), max_length=70, default='Tiles')
     def get_all_visible(self):
         return self.images.filter(display=True)
 
