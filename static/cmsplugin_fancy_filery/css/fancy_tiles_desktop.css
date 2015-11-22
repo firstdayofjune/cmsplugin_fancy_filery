@@ -3,6 +3,10 @@
     flex-wrap: wrap;
 }
 
+.fancy-filery h1 {
+    width: 100%;
+}
+
 .fancy-filery .fancy-tile {
     display: flex;
     position: relative;

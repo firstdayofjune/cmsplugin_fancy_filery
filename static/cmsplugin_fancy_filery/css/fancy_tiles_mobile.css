@@ -1,0 +1,80 @@
+.fancy-filery .fancy-preview {
+    display: none;
+}
+
+.fancy-filery h1 {
+    width: 100%;
+    border-bottom: 0.1rem solid rgba(0, 0, 0, 0.8);
+}
+
+.fancy-tile {
+    position: relative;
+    border-bottom: 0.07rem solid rgba(0, 0, 0, 0.8);
+    margin-top: 1rem;
+    padding: 1rem 0 1rem 0;
+    overflow: hidden;
+}
+
+.fancy-filery .fancy-caption {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+
+    display: block;
+    height: 2rem;
+    width: 100%;
+
+    white-space: nowrap;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+.fancy-filery .fancy-caption p {
+    margin: 0px;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    padding-left: 10px;
+    overflow: hidden;
+
+    -webkit-transition: all 300ms ease-out;
+    -moz-transition: all 300ms ease-out;
+    -o-transition: all 300ms ease-out;
+    -ms-transition: all 300ms ease-out;
+    transition: all 300ms ease-out;
+}
+
+
+.fancy-filery .fancy-overlay {
+    display: block;
+    top: 0;
+    width: 100%;
+
+    -webkit-transition: all 300ms ease-out;
+    -moz-transition: all 300ms ease-out;
+    -o-transition: all 300ms ease-out;
+    -ms-transition: all 300ms ease-out;
+    transition: all 300ms ease-out;
+}
+
+.fancy-filery .fancy-description {
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 100%;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    -webkit-transition: all 300ms ease-out;
+    -moz-transition: all 300ms ease-out;
+    -o-transition: all 300ms ease-out;
+    -ms-transition: all 300ms ease-out;
+    transition: all 300ms ease-out;
+}
+
+.fancy-tile:hover .fancy-overlay, .fancy-tile:hover .fancy-caption {
+    transform: translateX(-100%);
+}
+.fancy-tile:hover .fancy-description {
+    left: 0;
+}
