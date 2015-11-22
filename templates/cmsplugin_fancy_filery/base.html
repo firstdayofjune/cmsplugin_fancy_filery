@@ -7,6 +7,7 @@
 {% endaddtoblock %}
 {% addtoblock "js" %}
     <script type="text/javascript" src="{% static "cmsplugin_fancy_filery/js/fancy_mobile.js" %}"></script>
+    <script type="text/javascript" src="{% static "cmsplugin_fancy_filery/js/../../../../../cmsplugin_fancy_filery/static/cmsplugin_fancy_filery/js/fancy_desktop.js" %}"></script>
 {% endaddtoblock %}
 
 {% autoescape on %}
@@ -15,19 +16,19 @@
 <div class="fancy-filery">
 <h1>{{ gallery.title }}</h1>
     {% for image in images %}
-        <input type="radio" name="fancy-preview_{{ gallery.id }}" id="img{{ forloop.counter }}_radio" {% if forloop.first %} checked {% endif %}/>
-        <label class="fancy-thumbnail" for="img{{ forloop.counter }}_radio">
+        <input type="radio" name="fancy-preview_{{ gallery.id }}" id="img{{ gallery.id }}{{ forloop.counter }}_radio" {% if forloop.first %} checked {% endif %}/>
+        <label class="fancy-thumbnail" for="img{{ gallery.id }}{{ forloop.counter }}_radio">
             <img src="{% thumbnail image.filer 100x100 crop %}" width="100" height="100"/>
             <p class="fancy-title" data-title="{{ image.title }}">{{ image.title }}</p>
         </label>
-        <input type="checkbox" name="fancy-overlay" id="img{{ forloop.counter }}_check">
-        <label class="fancy-preview" for="img{{ forloop.counter }}_check">
+        <input type="checkbox" name="fancy-overlay" id="img{{ gallery.id }}{{ forloop.counter }}_check">
+        <label class="fancy-preview" for="img{{ gallery.id }}{{ forloop.counter }}_check">
             <img src="{% thumbnail image.filer 700x700 crop %}" width="450" height="450">
             <h2 class="fancy-title">{{ image.title }}</h2>
             <p class="fancy-description">{{ image.description }}</p>
             <div class="fancy-divider"></div>
         </label>
-        <label class="fancy-overlay" for="img{{ forloop.counter }}_check">
+        <label class="fancy-overlay" for="img{{ gallery.id }}{{ forloop.counter }}_check">
             <span class="fancy-top"></span>
             <img src="{{ image.filer.url }}">
             <p class="fancy-title">{{ image.title }}</p>
