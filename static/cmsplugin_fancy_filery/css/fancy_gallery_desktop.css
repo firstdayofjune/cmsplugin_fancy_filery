@@ -129,6 +129,10 @@
 	overflow: hidden;
 }
 
+.fancy-thumbnail .fancy-title:hover {
+	overflow: visible;
+}
+
 .fancy-thumbnail .fancy-title:hover:after {
 	content: attr(data-title);
 	position: absolute;

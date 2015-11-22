@@ -1,0 +1,96 @@
+.fancy-filery {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.fancy-filery .fancy-tile {
+    display: flex;
+    position: relative;
+    margin: 20px -380px 20px 20px;
+    height: 220px;
+    width: 600px;
+    overflow: hidden;
+}
+
+.fancy-tile .fancy-caption {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+
+    display: block;
+    width: 220px;
+    height: 30px;
+
+    line-height: 18px;
+    white-space: nowrap;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.fancy-tile .fancy-caption p {
+    margin: 0px;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    padding-left: 10px;
+    overflow: hidden;
+}
+
+.fancy-tile .fancy-caption p:hover {
+    overflow: visible;
+    z-index: 150;
+}
+
+.fancy-tile .fancy-caption p:hover:after {
+    content: attr(data-title);
+    position: absolute;
+    top: -6px;
+    left: 0px;
+
+    display: block;
+    white-space: nowrap;
+    line-height: 30px;
+    min-width: 200px;
+    overflow: visible;
+
+    z-index: 100;
+    padding-right: 10px;
+    padding-left: 10px;
+    background-color: rgba(0, 0, 0, 0.95);
+}
+
+.fancy-tile .fancy-description {
+    display: block;
+    position: relative;
+    left: -465px;
+    float: left;
+    z-index: 50;
+
+    margin: 0;
+    padding: 15px;
+    width: 225px;
+    height: 160px;
+    text-align: left;
+
+    overflow: hidden;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.8);
+
+    -webkit-transition: all 300ms ease-out;
+    -moz-transition: all 300ms ease-out;
+    -o-transition: all 300ms ease-out;
+    -ms-transition: all 300ms ease-out;
+    transition: all 300ms ease-out;
+}
+
+.fancy-tile .fancy-preview:hover ~ .fancy-description, .fancy-tile .fancy-description:hover, .fancy-tile .fancy-description:hover {
+    left: -20px;
+    height: 190px;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.90);
+    z-index: 100;
+}
+
+.fancy-tile .fancy-overlay {
+    display: none;
+}

@@ -1,0 +1,32 @@
+{% load sekizai_tags staticfiles thumbnail %}
+
+{% addtoblock "css" %}
+{#    <link rel="stylesheet" href="{% static "cmsplugin_fancy_filery/css/fancy_tiles_desktop.css" %}"#}
+{#          media="only screen and (min-width: 1024px)">#}
+{#    <link rel="stylesheet" href="{% static "cmsplugin_fancy_filery/css/fancy_tiles_mobile.css" %}"#}
+{#          media="only screen and (max-device-width: 1023px)">#}
+     <link rel="stylesheet" href="{% static "cmsplugin_fancy_filery/css/fancy_tiles_desktop.css" %}">
+{% endaddtoblock %}
+{% addtoblock "js" %}
+    <script type="text/javascript" src="{% static "cmsplugin_fancy_filery/js/fancy_tiles_mobile.js" %}"></script>
+    <script type="text/javascript" src="{% static "cmsplugin_fancy_filery/js/fancy_tiles_desktop.js" %}"></script>
+{% endaddtoblock %}
+
+{% autoescape on %}
+    <h1>{{ gallery.title }}</h1>
+    <div class='fancy-filery'>
+    {% for image in images %}
+        <div class='fancy-tile'>
+            <img class='fancy-preview' src="{% thumbnail image.filer 220x220 crop %}" width=220 height=220>
+            <span class='fancy-caption'>
+            <p data-title='{{ image.title }}'>{{ image.title }}</p>
+            </span>
+            <p class='fancy-description'>
+                {{ image.description }}
+            </p>
+            <img class='fancy-overlay' src="{{ image.filer.url }}">
+        </div>
+    {%  endfor %}
+    </div>
+
+{% endautoescape %}
